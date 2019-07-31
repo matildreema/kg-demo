@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Building a knowledge graph for better query understanding</title>
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/custom-theme.css" id="theme">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<div class="slides">
+			<section>
+				<h3>Building a knowledge graph for better query understanding</h3>
+			</section>
+
+			<section>
+				<h2>About me</h2>
+				<div class="flex">
+
+					<div class="about_me_text_container">
+						<h5>Matild Reema</h5>
+
+						<div class="about_me_details_container">
+							<div><small> Senior Software Engineer at Avalara</small></div>
+							<div><small> Previously @ Indix</small></div>
+							<div><small> Scala, Akka, Hadoop, Spark </small></div>
+						</div>
+					</div>
+					<div class="about_me_image_container">
+						<img src="img/intro.jpg" class="avatar" />
+					</div>
+				</div>
+
+			</section>
+			<section>
+				<h2>Agenda</h2>
+				<li class="fragment fade-in">Where knowledge graphs are used</li>
+				<li class="fragment fade-in">What it is</li>
+				<li class="fragment fade-in">How to build one</li>
+				<li class="fragment fade-in">Use case - Query understanding</li>
+				<li class="fragment fade-in">Demo of our product graph</li>
+
+			</section>
+			<section data-background-color="#24406b">
+				<section>
+					<h2>Looks familiar?</h2>
+					<div class="flex">
+						<div class="inline">
+							<div>
+								<img class="infobox fragment fade-in" src="img/movie_full_infobox.png" />
+							</div>
+						</div>
+
+						<div class="inline">
+							<div>
+								<img class="linkedin fragment fade-in" src="img/li_graph.png" />
+							</div>
+
+							<div>
+								<img class="facebook fragment fade-in" src="img/facebook_graph.png" />
+							</div>
+
+						</div>
+					</div>
+
+				</section>
+				<section>
+					<h2>Why did we build one?</h2>
+					<div class="flex">
+						<div class="text_container" style="align-items: center">
+							<li class="fragment fade-in">Catalog of 3B+ products</em></li>
+							<li class="fragment fade-in">Unstructured data<span class="fragment fade-in"> ->
+									Structured</span><span class="fragment fade-in"> -> Search</span></li>
+							<li class=" fragment fade-in">Simple search was not proving to be sufficient</li>
+							<li class="fragment fade-in">More meaningful / contextual search</li>
+						</div>
+					</div>
+
+				</section>
+
+				<section>
+					<h2>What does the knowledge graph offer?</h2>
+					<div class="flex">
+						<div class="text_container" style="align-items: center">
+							<ul class="fragment fade-in-then-semi-out" style="margin-left:10%">Answer <em>questions</em>
+							</ul>
+							<ul class="fragment fade-in-then-semi-out">Semantic Search</ul>
+							<ul class="fragment fade-in-then-semi-out">Recommendation engine</ul>
+							<ul class="fragment fade-in-then-semi-out">Discover insights</ul>
+							<ul class="fragment fade-in-then-semi-out" style="margin-left: 30%">Data -> Knowledge</ul>
+						</div>
+					</div>
+
+				</section>
+
+				<section>
+					<h2>Quick Demo</h2>
+				</section>
+
+
+				<section>
+					<h2>Let's get into the know-hows</h2>
+				</section>
+				<section>
+					<h2>What is it?</h2>
+					<ul>
+						<li class="fragment fade-in">Representation of your knowledge domain</li>
+						<li class="fragment fade-in">Entity => Node</li>
+						<ul>
+							<li class="fragment fade-in small-font">Barack Obama, United Nations</li>
+							<li class="fragment fade-in small-font">Product domain - Apple, iPhone</li>
+						</ul>
+						<li class="fragment fade-in">Assign semantic types and properties to entities</li>
+						<ul>
+								<li class="fragment fade-in small-font">Semantic types - Person, Organization, Brand, Product line</li>
+								<li class="fragment fade-in small-font">Properties - Height, Age, Year of founding, Price</li>
+							</ul>
+
+						<li class="fragment fade-in">Relations between those entities</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>How do I build one?</h2>
+				</section>
+				<section>
+					<h2>Extract entities for your graph</h2>
+
+					<div class="text_container">
+						<ul>
+							<li class="fragment fade-in">Structured data - already has extracted entities</li>
+							<li class="fragment fade-in">Unstructured data - use NER models to identify entities</li>
+							<ul>
+								<li class="fragment fade-in small-font"><em>tokenize, POS tagging</em></li>
+								<li class="fragment fade-in small-font">Classify them into higher level entites</li>
+							</ul>
+						</ul>
+
+					</div>
+
+
+				</section>
+				<section>
+					<h2>Entities from a product page</h2>
+					<div class="flex">
+						<div>
+							<img class="fragment fade-in" src="img/annotated_entities.jpg" />
+						</div>
+						<div>
+							<img class="fragment fade-in" src="img/product_entities.png" />
+						</div>
+
+					</div>
+
+				</section>
+
+				<section>
+					<h2>Link extraction</h2>
+					<div class="flex">
+						<div class="text_container">
+							<ul>
+								<li class="fragment fade-in">Formulate relations based on extracted facts</li>
+								<li class="fragment fade-in">Representation of connected data :</li>
+								<ul>
+									<li class="fragment fade-in">RDFs - <em>subject, predicate, object</em></li>
+									<ul style="font-size:30px">
+										<ul class="fragment fade-in">Subject: Apple</ul>
+										<ul class="fragment fade-in">Predicate: hasProductLine</ul>
+										<ul class="fragment fade-in">Object: iPhone</ul>
+									</ul>
+								</ul>
+								<aside class="notes">
+									Resource Description Framework
+									W3C Standard
+								</aside>
+
+						</div>
+					</div>
+
+				</section>
+				<section>
+					<div class="iphone_graph_wrapper">
+						<img src="img/iphone_graph.png" />
+					</div>
+				</section>
+				<section>
+					<h2>Link prediction</h2>
+
+					<div class="text_container">
+						<ul>
+							<li class="fragment fade-in">Can I predict the next most likely links?</em></li>
+							<li class="fragment fade-in">Similarity based algorithms
+
+								<ul>
+									<li class="fragment fade-in small-font">Proximity measures</li>
+									<ul class="fragment fade-in small-font">Common Neighbours, Preferential
+										Attachment</ul>
+								</ul>
+							<li class="fragment fade-in">Probabilistic models</li>
+							<ul>
+								<li class="fragment fade-in small-font">Use node attributes in addition to
+									network structure</li>
+							</ul>
+						</ul>
+					</div>
+
+
+
+				</section>
+
+
+			</section>
+			<section data-background-color="#332130">
+				<section>
+					<h2>Using the knowledge graph</h2>
+				</section>
+				<section>
+					<h2>"Semantic" Search</h2>
+					<li class="fragment fade-in">Determine searcher's intent</li>
+					<li class="fragment fade-in">Match meaning not words</li>
+					<li class="fragment fade-in">Knowledge of context</li>
+				</section>
+
+				<section>
+					<h2>Query Segmentation</h2>
+					<li class="fragment fade-in">Tokenize to get the right intent</li>
+					<li class="fragment fade-in">E.g:
+						<span class="fragment highlight-blue">men's</span>
+						<span class="fragment highlight-green">running shoes</span>
+					</li>
+
+				</section>
+				<section>
+					<h2>Query tagging</h2>
+					<ul>
+						<li class="fragment fade-in">Map query segments to entities in the graph</li>
+						<li class="fragment fade-in"> E.g:
+							<span class="underline fragment fade-in" style="color: #1b91ff">men's</span>
+							<span class="underline fragment fade-in" style="color: #17ff2e">running shoes</span>
+						</li>
+						<span class="entity fragment fade-in" style="color: #1b91ff">gender</span>
+						<span class="entity fragment fade-in" style="color: #17ff2e">itemType</span>
+					</ul>
+
+
+				</section>
+				<section>
+					<h2>Query Rewriting</h2>
+					<ul>
+
+						<li class="fragment fade-in">Query Expansion</li>
+						<ul class="fragment fade-in small-font">Adds additional terms like synonyms</ul>
+						<li class="fragment fade-in">Query Relaxation</li>
+						<ul class="fragment fade-in small-font">Remove query terms</ul>
+					</ul>
+
+				</section>
+				<section>
+					<h2>Related Search Suggestion</h2>
+					<li class="fragment fade-in">Explore your relations</li>
+					<li class="fragment fade-in">Complementary - Product vs accessories</li>
+					<li class="fragment fade-in">Competiting - Brand <em>X</em> vs Brand <em>Y</em></li>
+				</section>
+
+
+
+			</section>
+			<section>
+				<section>
+					<h2>Demo</h2>
+
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Questions?</h2>
+
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Bonus</h2>
+				</section>
+				<section>
+					<h2>Why not use tables?</h2>
+					<div class="flex">
+						<div class="text_container">
+							<li class="fragment fade-in">Lose dimensionality</li>
+							<li class="fragment fade-in">Better visualization with graphs</li>
+							<li class="fragment fade-in">Leverage all the work done on graph analysis</li>
+						</div>
+					</div>
+
+				</section>
+			</section>
+
+
+		</div>
+
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			hash: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/highlight/highlight.js', async: true },
+				{ src: 'plugin/search/search.js', async: true },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
