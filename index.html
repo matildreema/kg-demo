@@ -38,7 +38,7 @@
 
 		<div class="slides">
 			<section>
-				<h3>Building a knowledge graph for better query understanding</h3>
+				<h3>Knowledge graph for better query understanding</h3>
 			</section>
 
 			<section>
@@ -146,6 +146,10 @@
 						</ul>
 
 						<li class="fragment fade-in">Relations between those entities</li>
+						<ul>
+							<li class="fragment fade-in small-font">Bidirectional, Unidirectional</li>
+							<li class="fragment fade-in small-font">Can have associated weights - confidence</li>
+						</ul>
 					</ul>
 				</section>
 
@@ -153,7 +157,7 @@
 					<h2>How do I build one?</h2>
 				</section>
 				<section>
-					<h2>Extract entities for your graph</h2>
+					<h2>Identify entities in your domain</h2>
 
 					<div class="text_container">
 						<ul>
@@ -189,14 +193,17 @@
 						<div class="text_container">
 							<ul>
 								<li class="fragment fade-in">Formulate relations based on extracted facts</li>
+								<li class="fragment fade-in">Unstructured data - Dependency parsing and pos tagging</li>
 								<li class="fragment fade-in">Representation of connected data :</li>
 								<ul>
-									<li class="fragment fade-in">RDFs - <em>subject, predicate, object</em></li>
+									<li class="fragment fade-in">RDFs(Triples) - <em>subject, predicate, object</em>
+									</li>
 									<ul style="font-size:30px">
-										<ul class="fragment fade-in">Subject: Apple</ul>
-										<ul class="fragment fade-in">Predicate: hasProductLine</ul>
-										<ul class="fragment fade-in">Object: iPhone</ul>
+										<ul class="fragment fade-in"> <span style="color: gold">&ltApple&gt</span>
+											<span style="color: darkturquoise"> :hasProductLine </span><span style="color: gold">&ltiPhone&gt</span></ul>
 									</ul>
+									<li class="fragment fade-in">Property graphs - <em>key / value associated with
+											entities and relations</em></li>
 								</ul>
 								<aside class="notes">
 									Resource Description Framework
@@ -218,7 +225,7 @@
 					<div class="text_container">
 						<ul>
 							<li class="fragment fade-in">Can I predict the next most likely links?</em></li>
-							<li class="fragment fade-in">Similarity based algorithms
+							<li class="fragment fade-in">Based on graph structure
 
 								<ul>
 									<li class="fragment fade-in small-font">Proximity measures</li>
