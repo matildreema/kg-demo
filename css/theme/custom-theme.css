@@ -335,19 +335,6 @@
 
 }
 
-.reveal section img.linkedin {
-  height: 70%;
-  width: 70%;
-  margin-top: 0%;
-
-}
-
-.reveal section img.wiki-infobox {
-  height: 100%;
-  width: 100%;
-  margin-top: 0%;
-}
-
 .reveal section img.bought-together {
   height: 80%;
   width: 80%;
@@ -363,12 +350,6 @@
   margin-left: 0%;
 }
 
-.reveal section img.iphone-scroll {
-  margin-top: 0%;
-  height: 40%;
-  width: 40%;
-}
-
 .reveal section img.logo {
   background-color: unset;
   border: 0
@@ -380,6 +361,7 @@
 }
 
 .reveal section img.dgraph-logo {
+  margin-left: 230px;
   height: 40%;
   width: 40%
 }
