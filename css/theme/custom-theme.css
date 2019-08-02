@@ -341,6 +341,53 @@
   margin-top: 0%;
 
 }
+
+.reveal section img.wiki-infobox {
+  height: 100%;
+  width: 100%;
+  margin-top: 0%;
+}
+
+.reveal section img.bought-together {
+  height: 80%;
+  width: 80%;
+  margin-top: 0%;
+  margin-left: 0%;
+
+}
+
+.reveal section img.uber-eats {
+  height: 80%;
+  width: 80%;
+  margin-top: 0%;
+  margin-left: 0%;
+}
+
+.reveal section img.iphone-scroll {
+  margin-top: 0%;
+  height: 40%;
+  width: 40%;
+}
+
+.reveal section img.logo {
+  background-color: unset;
+  border: 0
+}
+
+.reveal section img.kube-logo {
+  height: 40%;
+  width: 40%
+}
+
+.reveal section img.dgraph-logo {
+  height: 40%;
+  width: 40%
+}
+
+.reveal section img.spark-logo {
+  height: 40%;
+  width: 40%
+}
  
  .reveal section img.plain {
    border: 0;
